@@ -4,6 +4,17 @@ import Home from "./components/Home";
 import DoctorsList from "./components/DoctorsList";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import AboutUs from "./pages/AboutUs";
+import OurServices from "./pages/OurServices";
+import ContactUs from "./pages/ContactUs";
+import AmbulanceServices from "./pages/AmbulanceServices";
+import MedicalServices from "./pages/MedicalServices";
+import Pharmacy from "./pages/Pharmacy";
+import WhyChooseUs from "./pages/WhyChooseUs";
+import NewsAndArticles from "./pages/NewsAndArticles";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsConditions from "./pages/TermsConditions"; // Import your new TermsConditions page
+
 
 function App() {
   return (
@@ -13,6 +24,16 @@ function App() {
         <Route path="/doctors/:specialization" element={<DoctorsList />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/services" element={<OurServices />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/ambulance" element={<AmbulanceServices />} />
+        <Route path="/medical-services" element={<MedicalServices />} />
+        <Route path="/pharmacy" element={<Pharmacy />} />
+        <Route path="/why-choose-us" element={<WhyChooseUs />} />
+        <Route path="/news-articles" element={<NewsAndArticles />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy /> } />
+        <Route path="/terms-conditions" element={<TermsConditions />} />
       </Routes>
     </Router>
   );

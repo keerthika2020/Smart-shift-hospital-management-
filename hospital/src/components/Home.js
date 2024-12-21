@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Typography, Grid, Container, Box } from "@mui/material";
 import { Link } from "react-router-dom";
 import Header from "./Header";
+import VisionMissionValues from "./VisionMissionValues";
+import Footer from "./Footer";
 import LocationContent from "./LocationContent";
 import "./styles.css"; // Adjust styles as needed.
+
 
 const slides = [
   {
@@ -97,6 +100,9 @@ function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  
+   
+
   const handleLocationClick = (location) => {
     setSelectedLocation(location);
   };
@@ -131,7 +137,7 @@ function Home() {
       </Container>
 
       {/* Specializations Section */}
-      <Container sx={{ marginTop: 5 }}>
+      <Container id="specializations" sx={{ marginTop: 5 }}>
         <Box textAlign="center" mb={3}>
           <Typography
             variant="h4"
@@ -195,7 +201,7 @@ as a citadel of world class clinical outcomes.
                       alt={spec}
                       style={{
                         width: "100%",
-                        maxWidth: "70px",
+                        maxWidth: "90px",
                         height: "auto",
                         cursor: "pointer",
                       }}
@@ -207,13 +213,15 @@ as a citadel of world class clinical outcomes.
           </Grid>
         </Grid>
       </Container>
+      
 
       {/* Hospital in TamilNadu Content */}
-      <Container sx={{ marginTop: 5 }}>
+      <Container id="location" sx={{ marginTop: 5 }}>
         <Typography
           variant="h4"
           gutterBottom
           sx={{
+            textAlign:"center",
             fontFamily: "'Poppins', sans-serif",  // Apply Poppins font
             fontWeight: 600,  // Bold weight
             color: "#0F6A6B",  // Custom color
@@ -271,7 +279,7 @@ as a citadel of world class clinical outcomes.
                   alt={location.name}
                   style={{
                     width: "100%",
-                    maxWidth: "70px",
+                    maxWidth: "90px",
                     height: "auto",
                     borderRadius: "10px",
                     
@@ -321,7 +329,7 @@ as a citadel of world class clinical outcomes.
           alt={selectedLocation.name}
           style={{
             width: "100%",
-            maxWidth: "300px",
+            maxWidth: "500px",
             height: "auto",
             borderRadius: "0px", // Sharp edges
           }}
@@ -384,6 +392,11 @@ as a citadel of world class clinical outcomes.
 )}
 
       </Container>
+       {/* Vision, Mission, and Values Section */}
+       <VisionMissionValues />
+
+{/* Footer Section */}
+<Footer />
     </div>
   );
 }

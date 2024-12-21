@@ -63,12 +63,26 @@ function Register() {
 
   return (
     <div style={{ backgroundColor: "#0F6A6B", minHeight: "100vh", padding: "50px 0" }}>
+       {/* Home Image Icon to Navigate to Homepage */}
+              <Link to="/" style={{ position: "absolute", top: "20px", right: "20px", zIndex: 100 }}>
+                <img src="/assets/home.jpg" alt="Home" style={{ width: "40px", height: "40px", cursor: "pointer" }} />
+              </Link>
       <div className="container" style={{ maxWidth: "900px", margin: "0 auto", backgroundColor: "white", padding: "30px", borderRadius: "8px" }}>
-        <h1>User Registration</h1>
+      <h1
+          style={{
+            textAlign: "center",
+            color: "#0F6A6B",
+            marginBottom: "30px",
+          }}
+        >
+          User Registration
+        </h1>
         <form onSubmit={handleSubmit}>
           {/* Personal Information */}
           <div className="form-section">
-            <h2>1. Personal Information</h2>
+          <h2 style={{ color: "#0F6A6B", marginBottom: "15px" }}>
+              1. Personal Information
+            </h2>
             <div className="form-group">
               <label htmlFor="first_name">First Name</label>
               <input type="text" id="first_name" name="firstName" onChange={handleChange} required />
@@ -102,7 +116,7 @@ function Register() {
 
           {/* Professional Information */}
           <div className="form-section">
-            <h2>2. Professional Information</h2>
+          <h2 style={{ color: "#0F6A6B", marginBottom: "15px" }}>2. Professional Information</h2>
             <div className="form-group">
               <label htmlFor="staff_id">Staff ID</label>
               <input type="text" id="staff_id" name="staffId" onChange={handleChange} required />
@@ -132,7 +146,7 @@ function Register() {
 
           {/* Credentials */}
           <div className="form-section">
-            <h2>3. Credentials</h2>
+          <h2 style={{ color: "#0F6A6B", marginBottom: "15px" }}>3. Credentials</h2>
             <div className="form-group">
               <label htmlFor="username">Username</label>
               <input type="text" id="username" name="username" onChange={handleChange} required />
@@ -165,7 +179,7 @@ function Register() {
 
           {/* Address Details */}
           <div className="form-section">
-            <h2>4. Address Details</h2>
+          <h2 style={{ color: "#0F6A6B", marginBottom: "15px" }}>4. Address Details</h2>
             <div className="form-group">
               <label htmlFor="permanent_address">Permanent Address</label>
               <textarea id="permanent_address" name="permanentAddress" rows="3" onChange={handleChange} required></textarea>
@@ -178,7 +192,7 @@ function Register() {
 
           {/* Emergency Contact */}
           <div className="form-section">
-            <h2>5. Emergency Contact</h2>
+          <h2 style={{ color: "#0F6A6B", marginBottom: "15px" }}>5. Emergency Contact</h2>
             <div className="form-group">
               <label htmlFor="emergency_contact_name">Emergency Contact Name</label>
               <input type="text" id="emergency_contact_name" name="emergencyContactName" onChange={handleChange} required />
@@ -195,7 +209,7 @@ function Register() {
 
           {/* Additional Information */}
           <div className="form-section">
-            <h2>6. Additional Information</h2>
+          <h2 style={{ color: "#0F6A6B", marginBottom: "15px" }}>6. Additional Information</h2>
             <div className="form-group">
               <label htmlFor="profile_picture">Profile Picture</label>
               <input type="file" id="profile_picture" name="profilePicture" onChange={handleChange} />
@@ -224,7 +238,23 @@ function Register() {
 
           {/* Submit Button */}
           <div className="form-group">
-            <button type="submit">Register</button>
+          <button
+              type="submit"
+              style={{
+                backgroundColor: "#0F6A6B",
+                color: "white",
+                padding: "10px 20px",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+                fontSize: "16px",
+                transition: "background-color 0.3s ease",
+              }}
+              onMouseOver={(e) => (e.target.style.backgroundColor = "#054D4F")}
+              onMouseOut={(e) => (e.target.style.backgroundColor = "#0F6A6B")}
+            >
+              Register
+            </button>
           </div>
         </form>
 

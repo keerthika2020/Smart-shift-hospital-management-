@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Button, TextField, Box, InputAdornment } from "@mui/material";
 import { styled } from "@mui/system";
@@ -17,14 +17,26 @@ const Logo = styled(Typography)({
 });
 
 const LogoImage = styled("img")({
-  height: "70px", // Adjust the height of the logo
+  height: "90px", // Adjust the height of the logo
   width: "auto",
   marginRight: "10px", // Adds space between the logo and the text
 });
 
 function Header() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Handle search and scroll to section
+  const handleSearch = () => {
+    if (searchQuery) {
+      const section = document.getElementById(searchQuery.toLowerCase());
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
-    <StyledAppBar position="static">
+    <StyledAppBar position="static" className="header-container">
       <Toolbar>
         <Box display="flex" alignItems="center" flexGrow={1}>
           {/* Add the logo image */}
@@ -32,9 +44,12 @@ function Header() {
           <Logo>The Vitality World of Lifecare</Logo>
         </Box>
         <TextField
+          className="header-search-bar"
           variant="outlined"
           placeholder="Search..."
           size="small"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           sx={{
             backgroundColor: "#fff",
             marginRight: "20px",
@@ -45,7 +60,7 @@ function Header() {
           }}
           InputProps={{
             endAdornment: (
-              <InputAdornment position="end">
+              <InputAdornment position="end" onClick={handleSearch} sx={{ cursor: "pointer" }}>
                 <SearchIcon sx={{ color: "#0F6A6B" }} /> {/* Search icon styling */}
               </InputAdornment>
             ),
@@ -56,7 +71,7 @@ function Header() {
           component={Link}
           to="/login"
           sx={{
-            color: "#fff", 
+            color: "#fff",
             "&:hover": {
               backgroundColor: "#054D4F", // Darker shade of #0F6A6B for hover effect
               color: "#fff", // Change text color to white on hover
@@ -72,7 +87,7 @@ function Header() {
           component={Link}
           to="/register"
           sx={{
-            color: "#fff", 
+            color: "#fff",
             "&:hover": {
               backgroundColor: "#054D4F", // Darker shade of #0F6A6B for hover effect
               color: "#fff", // Change text color to white on hover
