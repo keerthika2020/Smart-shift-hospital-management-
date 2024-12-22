@@ -1,8 +1,9 @@
 import React from 'react';
 import { Container, Typography, Box, List, ListItem, ListItemText } from '@mui/material';
 import { styled } from '@mui/system';
-import Footer from "../components/Footer";  // Update this if Footer is in the components directory
-import Header from "../components/Header";  // Update this if Header is in the components directory
+import Header from '../components/homepage/Header';
+import Footer from '../components/homepage/Footer';
+
 
 
 const SectionTitle = styled(Typography)(({ theme }) => ({

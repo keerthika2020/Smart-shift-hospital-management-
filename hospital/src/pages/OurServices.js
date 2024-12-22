@@ -1,31 +1,101 @@
 import React from "react";
-import { Box, Typography, Grid } from "@mui/material";
-//import serviceImage from "../../assets/images/services.jpg"; // Example image
+import { Box, Typography, Grid, Card, CardContent, CardMedia } from "@mui/material";
+import Header from "../components/homepage/Header";
+import Footer from "../components/homepage/Footer";
+
+const services = [
+  {
+    title: "Emergency Care",
+    description:
+      "Our 24/7 emergency department is equipped with advanced facilities and trained medical professionals to handle all critical situations promptly.",
+    image: "/assets/emergency.jpg",
+  },
+  {
+    title: "Outpatient Services",
+    description:
+      "Efficient outpatient services with minimal waiting times. Our specialists ensure comprehensive consultations and follow-ups.",
+    image: "/assets/outpatient.jpg",
+  },
+  {
+    title: "Inpatient Services",
+    description:
+      "State-of-the-art inpatient facilities with private rooms, ICUs, and round-the-clock nursing care to ensure patient comfort and recovery.",
+    image: "/assets/inpatient.jpg",
+  },
+  {
+    title: "Diagnostic Services",
+    description:
+      "Advanced diagnostic facilities including imaging (MRI, CT, X-ray) and laboratory services for accurate and timely diagnosis.",
+    image: "/assets/diagnostic.jpg",
+  },
+  {
+    title: "Surgical Services",
+    description:
+      "A full spectrum of surgical procedures, from minimally invasive to complex surgeries, performed by expert surgeons using cutting-edge technology.",
+    image: "/assets/surgical.jpg",
+  },
+  {
+    title: "Pharmacy Services",
+    description:
+      "On-campus pharmacies providing easy access to medications with extended operational hours for patient convenience.",
+    image: "/assets/pharmacy.jpg",
+  },
+  {
+    title: "Maternity and Child Care",
+    description:
+      "Comprehensive maternity and pediatric services, including prenatal care, childbirth, neonatal care, and vaccination programs.",
+    image: "/assets/maternity.jpg",
+  },
+  {
+    title: "Rehabilitation Services",
+    description:
+      "Dedicated rehabilitation units offering physical therapy, occupational therapy, and psychological support to aid recovery.",
+    image: "/assets/rehabilitation.jpg",
+  },
+  {
+    title: "Health Check-Up Packages",
+    description:
+      "Affordable and customized health check-up packages designed to cater to all age groups, ensuring preventive healthcare.",
+    image: "/assets/healthcheck.jpg",
+  },
+];
 
 const OurServices = () => {
   return (
-    <Box sx={{ padding: "20px", backgroundColor: "#e9ecef" }}>
-      <Typography variant="h4" align="center" gutterBottom>
-        Our Services
-      </Typography>
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
-          <Typography variant="body1">
-            We offer a comprehensive range of services designed to make healthcare easier for both patients and medical staff. Our hospital management system includes:
-            <ul>
-              <li>Appointment Scheduling</li>
-              <li>Patient Records Management</li>
-              <li>Real-time Data Access</li>
-              <li>24/7 Emergency Services</li>
-              <li>Pharmacy Integration</li>
-            </ul>
-          </Typography>
+    <div>
+      <Header />
+      <Box sx={{ padding: "20px", backgroundColor: "#f8f9fa" }}>
+        <Typography variant="h4" align="center" gutterBottom>
+          Our Services
+        </Typography>
+        <Typography variant="body1" align="center" sx={{ marginBottom: "20px", color: "#6c757d" }}>
+          We are committed to providing exceptional healthcare services to meet the diverse needs of our patients.
+        </Typography>
+        <Grid container spacing={4}>
+          {services.map((service, index) => (
+            <Grid item xs={12} md={6} lg={4} key={index}>
+              <Card sx={{ boxShadow: 3, borderRadius: "8px" }}>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={service.image}
+                  alt={service.title}
+                />
+                <CardContent>
+                  <Typography variant="h6" gutterBottom>
+                    {service.title}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary">
+                    {service.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
-        <Grid item xs={12} md={6}>
-          <img src="service.jpg" alt="Services" style={{ width: "100%", borderRadius: "8px" }} />
-        </Grid>
-      </Grid>
-    </Box>
+      </Box>
+      <Footer />
+    </div>
   );
 };
 
